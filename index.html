@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senha</title>
+    <!-- Inclua o CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Logo -->
+        <center><img src="logo.png" alt="Logo da empresa" width="128" height="128"></center>
+    </div>
+    <div class="container mt-5">
+        <center><h2 class="mb-4">Gerador de Senha</h2></center>
+        <div class="input-group mb-3">
+            <input type="text" id="password-display" class="form-control smaller-width" readonly>
+            <button class="btn btn-primary" onclick="generatePassword()">Gerar Senha</button>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <br/><center>Gibolos - versão 0.1</center>
+        </div>
+    </div>
+
+    <!-- Inclua o JavaScript do Bootstrap (opcional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        function generatePassword() {
+            const passwordLength = 12; // Defina o comprimento da senha desejado
+            const password = generateRandomPassword(passwordLength);
+            document.getElementById("password-display").value = password;
+        }
+
+        function generateRandomPassword(length) {
+            const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+            let password = "";
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                password += charset[randomIndex];
+            }
+            return password;
+        }
+    </script>
+</body>
+</html>
